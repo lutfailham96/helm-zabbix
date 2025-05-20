@@ -100,7 +100,7 @@ spec:
   ports:
     - port: {{ .Values.zabbixAgent.service.port }}
       name: zabbix-agent
-      targetPort: 10050
+      targetPort: {{ .Values.zabbixAgent.service.port }}
       protocol: TCP
       {{- if and (or (eq .Values.zabbixAgent.service.type "NodePort") (eq .Values.zabbixAgent.service.type "LoadBalancer" )) (not (empty .Values.zabbixAgent.service.nodePort)) }}
       nodePort: {{ .Values.zabbixAgent.service.nodePort }}
